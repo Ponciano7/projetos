@@ -11,6 +11,9 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
       <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Voltar','#',['class' => 'btn btn-warning','onclick'=>"history.go(-1);"]); ?>
   </p>
 
+  <input type="button" name="botao-salvar" value="Salvar mudanças"> 
+  <input type="button" name="botao-cancelar" value="Cancelar mudanças"> 
+
   <?php foreach ($model as $Item): ?>
     <li>
       <?= Html::a("{$Item->natureza}", array('/orc/alter','id' => $Item->id, 'projeto' => $Item->id_projeto), ['class'=>'glyphicon glyphicon-folder-open']) ?>
