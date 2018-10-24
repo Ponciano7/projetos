@@ -91,7 +91,10 @@ class OrcController extends Controller
 
       return $this->render("index", ['model' => $Projetos]);
 
+    }
 
+    public function actionItem(){
+      $Item =
     }
 
     /**
