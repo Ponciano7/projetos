@@ -4,12 +4,23 @@ use yii\grid\GridView;
 use xj\bootbox\BootboxAsset;
 /* @var $this yii\web\View */
 $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
+
 ?>
 <div class="table-responsive">
 <div class="site-index">
   <p>
       <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Voltar','#',['class' => 'btn btn-warning','onclick'=>"history.go(-1);"]); ?>
   </p>
+
+  <?php
+    if($_POST){
+
+    }else{
+      echo "NAO TEVE DADOS";
+    }
+
+
+  ?>
 
   <?php foreach ($model as $Item): ?>
     <li>
@@ -18,6 +29,10 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
     </li>
 
   <?php endforeach; ?>
+
+ <h><?php echo $Item->natureza; ?></h>
+
+        <form class="form-item"  method="post">
 
 
 
@@ -41,19 +56,35 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
 
                 <tbody>
               		<tr>
-              			<td><input type="text" name="num-item" placeholder="01"></td>
-              			<td><input type="text" name="local" placeholder="São Paulo"></td>
-              			<td><input type="text" name="qtd" placeholder=""></td>
+              			<td><h><?php echo $Item->numero_item; ?></h></td>
+              			<td><input type="text" class="input-class" name="local" placeholder="São Paulo"></td>
+              			<td><input type="text" class="input-class" name="qtd" <?php echo "placeholder='".$Item->quantidade."'"; ?>></td>
               			<td><input type="text" name="custo-unit" placeholder="R$"></td>
               			<td><input type="text" name="custo-total" placeholder="R$"></td>
               			<td><input type="text" name="v-gasto" placeholder="R$"></td>
               			<td><input type="text" name="v-disp" placeholder="R$"></td>
               			<td><input type="text" name="prof" placeholder=""></td>
               			<td><input type="text" name="justif" placeholder=""></td>
-              			<td><input type="buttom" name="excluir" value="excluir-item"></td>
+              			<td><input type="button" name="excluir" value="excluir-item"></td>
               		</tr>
               	</tbody>
+
+                <tbody>
+                  <tr>
+                    <td><input type="text" name="num-item" placeholder="01"></td>
+                    <td><input type="text" name="local" placeholder="São Paulo"></td>
+                    <td><input type="text" name="qtd" placeholder=""></td>
+                    <td><input type="text" name="custo-unit" placeholder="R$"></td>
+                    <td><input type="text" name="custo-total" placeholder="R$"></td>
+                    <td><input type="text" name="v-gasto" placeholder="R$"></td>
+                    <td><input type="text" name="v-disp" placeholder="R$"></td>
+                    <td><input type="text" name="prof" placeholder=""></td>
+                    <td><input type="text" name="justif" placeholder=""></td>
+                    <td><input type="button" name="excluir" value="excluir-item"></td>
+                  </tr>
+                </tbody>
               </table>
+
 
               <table class="table">
                       <legend align="left">Diárias Internacionais</legend>
@@ -88,7 +119,7 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
                     			<td><input type="text" name="v-disp" placeholder="R$"></td>
                     			<td><input type="text" name="prof" placeholder=""></td>
                     			<td><input type="text" name="justif" placeholder=""></td>
-                    			<td><input type="buttom" name="excluir" value="excluir-item"></td>
+                    			<td><input type="button" name="excluir" value="excluir-item"></td>
                     		</tr>
                     	</tbody>
              </table>
@@ -103,8 +134,6 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
                                    <th scope="col">Quantidade</th>
                                    <th scope="col">Custo Unitário</th>
                                    <th scope="col">Custo Total</th>
-                                   <th scope="col">Custo Unitário em R$</th>
-                                   <th scope="col">Custo Total em R$</th>
                                    <th scope="col">Valor Gasto</th>
                                    <th scope="col">Valor Disponível</th>
                                    <th scope="col">Professor Responsável</th>
@@ -120,15 +149,18 @@ $this->title = "Projeto: " . $modelProjeto->titulo_projeto;
                         <td><input type="text" name="qtd" placeholder=""></td>
                         <td><input type="text" name="custo-unit" placeholder="R$"></td>
                         <td><input type="text" name="custo-total" placeholder="R$"></td>
-                         <td><input type="text" name="custo-unit-r$" placeholder="R$"></td>
-                         <td><input type="text" name="custo-total-r$" placeholder="R$"></td>
                         <td><input type="text" name="v-gasto" placeholder="R$"></td>
                         <td><input type="text" name="v-disp" placeholder="R$"></td>
                         <td><input type="text" name="prof" placeholder=""></td>
                         <td><input type="text" name="justif" placeholder=""></td>
-                        <td><input type="buttom" name="excluir" value="excluir-item"></td>
+                        <td><input type="button" name="excluir" value="excluir-item"></td>
                       </tr>
                     </tbody>
             </table>
+
+            <div class="form-group">
+              <?= Html::submitButton('Salvar alterações', ['Item/alter'], ['class' => 'btn btn-success', 'name' => 'alter-button']) ?>
+            </div>
+        </form>
         <br><br>
     </div>
