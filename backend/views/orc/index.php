@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use xj\bootbox\BootboxAsset;
+
 /* @var $this yii\web\View */
 $this->title = 'Lista de Projetos';
 ?>

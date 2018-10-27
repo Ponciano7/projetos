@@ -3,6 +3,7 @@
 namespace backend\controllers;
 use backend\models\Projeto;
 use backend\models\Item;
+use backend\models\despesa_diaria;
 use Yii;
 use yii\filters\AccessControl;
 use common\models\User;
@@ -93,9 +94,10 @@ class OrcController extends Controller
 
     }
 
-    public function actionItem(){
+/**    public function actionItem(){
       $Item =
     }
+*/
 
     /**
      * Displays a single User model.
@@ -116,9 +118,16 @@ class OrcController extends Controller
       $Itens = Item::find()->where(['id_projeto' => $id])->all();
       //$Projetos = Projeto::find()->where(['id' => 2])->all();
 
+      if($Itens = Yii::$app->request->post())
+      {
+        $Itens.(false);
+      }
 
-        return $this->render('alter',['model' => $Itens,'modelProjeto' => $Projetos]);
+        return $this->render('alter',['modelItem' => $Itens,'modelProjeto' => $Projetos]);
     }
+
+
+
     public function actionPerfil()
     {
         return $this->render('perfil', [

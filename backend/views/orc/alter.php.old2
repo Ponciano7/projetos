@@ -1,0 +1,66 @@
+<?php
+use yii\helpers\Html;
+
+
+use yii\bootstrap\ActiveForm;
+/* @var $this yii\web\View */
+$this->title = "Projeto: " . $modelProjeto->titulo_projeto;
+
+?>
+<div class="table-responsive">
+<div class="site-index">
+  <p>
+      <?= Html::a('<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Voltar','#',['class' => 'btn btn-warning','onclick'=>"history.go(-1);"]); ?>
+  </p>
+
+  <?php
+    if($_POST){
+      echo "Você inseriu dados";
+
+    }else{
+      echo "NAO TEVE DADOS";
+    }
+
+
+  ?>
+
+  <?php foreach ($modelItem as $ItemProjeto): ?>
+    <li>
+      <?= Html::a("{$ItemProjeto->natureza}", array('/orc/alter','id' => $ItemProjeto->id, 'projeto' => $ItemProjeto->id_projeto), ['class'=>'glyphicon glyphicon-folder-open']) ?>
+
+    </li>
+
+  <?php endforeach; ?>
+
+<form class="form-item"  method="post">
+
+
+
+
+<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+     <div class="container">
+          <div class="row">
+               <div class="col-sm"> coluna 1</div>
+               <div class="col-sm"> coluna 2</div>
+               <div class="col-sm"> coluna 3</div>
+               <div class="col-sm"> coluna 4</div>
+           </div>
+
+</div>
+
+
+
+              <?php ActiveForm::end(); ?>
+
+
+
+
+
+
+
+            <div class="form-group">
+              <?= Html::submitButton('Salvar alterações', ['Item/alter'], ['class' => 'btn btn-success', 'name' => 'alter-button']) ?>
+            </div>
+        </form>
+        <br><br>
+    </div>

@@ -35,4 +35,14 @@ Class DBquery{
 
     return $query;
   }
+
+  public function updateItem(){
+    $connection = Yii::$app->getDb();
+    $var = "UPDATE 'item' SET valor ='".$."'"
+    $command = $connection->createCommand($var);
+
+    $query = $command->queryAll();
+
+    return $query;
+  }
 }
