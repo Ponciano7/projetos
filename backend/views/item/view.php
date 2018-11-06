@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?//= Html::a('Página Inicial', ['index', 'id' => $model->id_projeto], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= DetailView::widget([
