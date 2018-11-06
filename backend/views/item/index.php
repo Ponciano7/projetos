@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Item Models';
+$this->title = 'Itens do Projeto';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="item-model-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Item Model', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Adicionar Item', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'valor',
             'numero_item',
             'justificativa:ntext',
-            //'quantidade',
-            //'custo_unitario',
-            //'tipo_item',
-            //'descricao:ntext',
-            //'id_projeto',
+            'quantidade',
+            'custo_unitario',
+            'tipo_item',
+            'descricao:ntext',
+            'id_projeto',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           'template'=>'{alterarOrcamento}',
 
                             'buttons'=>[
-
+                            
                               'alterarOrcamento' => function ($url, $model)
                                           {
                                                return Html::a('<span class="glyphicon glyphicon-search"></span>',  array('/item/index','id_projeto' => $model->id), ['title' => Yii::t('yii', 'Create'),]);
@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]
 
                             ]
-
             ],
     ]); ?>
 </div>

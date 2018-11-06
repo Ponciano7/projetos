@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\ItemModel */
 
-$this->title = 'Create Item Model';
+$this->title = 'Inserir Item de Projeto';
 $this->params['breadcrumbs'][] = ['label' => 'Item Models', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

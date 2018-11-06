@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\ItemModel */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+ 
 <div class="item-model-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_projeto')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

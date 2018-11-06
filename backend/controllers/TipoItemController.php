@@ -4,8 +4,7 @@ namespace app\controllers;
 namespace backend\controllers;
 
 use Yii;
-use app\models\ItemModel;
-use app\models\ItemSearch;
+use app\models\TipoItemModel;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * ItemController implements the CRUD actions for ItemModel model.
  */
-class ItemController extends Controller
+class TipoItemController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -55,30 +54,30 @@ class ItemController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
+    // public function actionView($id)
+    // {
+    //     return $this->render('view', [
+    //         'model' => $this->findModel($id),
+    //     ]);
+    // }
 
     /**
      * Creates a new ItemModel model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        $model = new ItemModel();
+    // public function actionCreate()
+    // {
+    //     $model = new ItemModel();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //         return $this->redirect(['view', 'id' => $model->id]);
+    //     }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //     ]);
+    // }
 
     /**
      * Updates an existing ItemModel model.
@@ -89,14 +88,14 @@ class ItemController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $modelTipoItem = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($modelTipoItem->load(Yii::$app->request->post()) && $modelTipoItem->save()) {
+            return $this->redirect(['view', 'descricao_tipo_item' => $modelTipoItem->descricao_tipo_item]);
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'modelTipoItem' => $modelTipoItem,
         ]);
     }
 
@@ -107,16 +106,12 @@ class ItemController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete()->where(['id_projeto' => $id_projeto]);
+    // public function actionDelete($id)
+    // {
+    //     $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
-
-    public function actionRedirect($id){
-        return $this->redirect(['index', 'model' => $model]);
-    }
+    //     return $this->redirect(['index']);
+    // }
 
     /**
      * Finds the ItemModel model based on its primary key value.
@@ -127,8 +122,8 @@ class ItemController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ItemModel::findOne($id)) !== null) {
-            return $model;
+        if (($modelTipoItem = TipoItem::findOne($id)) !== null) {
+            return $modelTipoItem;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
