@@ -43,3 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+<script type="text/javascript">
+    
+</script>
